@@ -33,7 +33,7 @@
 
 
     <footer class="container">
-        <p>&copy; WebmMrket</p>
+        <p>&copy; WebMarket</p>
     </footer>
 </body>
 </html>
