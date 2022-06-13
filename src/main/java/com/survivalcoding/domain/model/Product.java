@@ -18,7 +18,6 @@ public class Product {
 		Product product2 = new Product("33", "33", 11);
 		System.out.println(product2);
 		
-		
 		System.out.println(product.hashCode());
 		System.out.println(product2.hashCode());
 		System.out.println(product == product2 ); // false: product와 product2는 같지 않다! 
@@ -26,25 +25,19 @@ public class Product {
 		Object object = new Product("33", "33", 11);
 	
 		System.out.println(product.equals(product2)); //false but! hashcode equals 이후에는 true (id 가 같으면 같은 놈으로 보겠다고 설정함)
-		System.out.println(product.hashCode() == product2.hashCode()); //true hashcode equals 이후에 hashcode가 같아짐 ! 
-		
+		System.out.println(product.hashCode() == product2.hashCode()); //true hashcode equals 이후에 hashcode가 같아
 	}
 // 속성들을 private으로 만든다
-	private String id;
-	private String name;
-	private int unitPrice;
-	private String descripstion;
-	private String manufacturer;
-	private String categoty;
-	private long unitsInstock;
-	private String condition;
+    private String id;
+    private String name;
+    private int unitPrice;
+    private String description; 
+    private String manufacturer;
+    private String category;
+    private long unitsInStock;
+    private String condition;
 
-////	똑같은 이름의 생성자 -> 오버로드
-//	public Product() {
-//		
-//	}
-	
-	
+//	똑같은 이름의 생성자 -> 오버로드
 //	생성자 source (오른쪽 우클릭) -> id, name, unitPrice
 //	생성자를 만드는 이유-> 오류 없이 쉽게 사용하기 위해
 	public Product(String id, String name, int unitPrice) {
@@ -87,13 +80,13 @@ public class Product {
 	}
 
 
-	public String getDescripstion() {
-		return descripstion;
+	public String getDescription() {
+		return description;
 	}
 
 
-	public void setDescripstion(String descripstion) {
-		this.descripstion = descripstion;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 
@@ -107,23 +100,23 @@ public class Product {
 	}
 
 
-	public String getCategoty() {
-		return categoty;
+	public String getCategory() {
+		return category;
 	}
 
 
-	public void setCategoty(String categoty) {
-		this.categoty = categoty;
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 
-	public long getUnitsInstock() {
-		return unitsInstock;
+	public long getUnitsInStock() {
+		return unitsInStock;
 	}
 
 
-	public void setUnitsInstock(long unitsInstock) {
-		this.unitsInstock = unitsInstock;
+	public void setUnitsInStock(long unitsInStock) {
+		this.unitsInStock = unitsInStock;
 	}
 
 
@@ -137,22 +130,12 @@ public class Product {
 	}
 
 
-//	toStirng (오른쪽 우클릭 source) 
-	@Override
-	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", unitPrice=" + unitPrice + ", descripstion=" + descripstion
-				+ ", manufacturer=" + manufacturer + ", categoty=" + categoty + ", unitsInstock=" + unitsInstock
-				+ ", condition=" + condition + "]";
-	}
-
 //	object class => class계의 신! 
-	
-	
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -166,8 +149,13 @@ public class Product {
 		return Objects.equals(id, other.id);
 	}
 	
-
-	
+//	toStirng (오른쪽 우클릭 source) 
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", unitPrice=" + unitPrice + ", description=" + description
+				+ ", manufacturer=" + manufacturer + ", category=" + category + ", unitsInStock=" + unitsInStock
+				+ ", condition=" + condition + "]";
+	}
 	
 	
 }

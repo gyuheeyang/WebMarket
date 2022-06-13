@@ -6,22 +6,47 @@ import java.util.List;
 import com.survivalcoding.domain.model.Product;
 
 public class ProductRepository {
-	public static void main(String[] args) {
+
+	private List<Product> products = new ArrayList<>();
+	
+	
+	public ProductRepository() {
+		Product phone = new Product("P1234", "iphone 6s", 800000);
+		phone.setDescription("4.7inch, 1234x750 Retina HD display");
+		phone.setCategory("Smart Phone");
+		phone.setManufacturer("Apple");
+		phone.setUnitsInStock(1000);
+		phone.setCondition("New");
 		
-//		삽입, 삭제가 빈번할 때 항상 동일 성능, but ArrayList보다 검색이 느리다 
-//		메모리를 조금 더 차지한다 
-		List<Product> products = new LinkedList<>();
-//		크기가 커질수록 삽입, 삭제가 느려짐 내부적으로 배열이기 때문에 성능이 빠르다 
-		List<Product> products2 = new ArrayList<>();
+		Product notebook = new Product("P1235", "LG PC 그램", 1500000);
+        notebook.setDescription("!4.7-inch, 1334x750 Retina HD display");
+        notebook.setCategory("!Smart Phone");
+        notebook.setManufacturer("!Apple");
+        notebook.setUnitsInStock(1000);
+        notebook.setCondition("Refubished");
+
+        Product tablet = new Product("P1236", "Galaxy Tab S", 900000);
+        tablet.setDescription("?4.7-inch, 1334x750 Retina HD display");
+        tablet.setCategory("?Smart Phone");
+        tablet.setManufacturer("?Apple");
+        tablet.setUnitsInStock(1000);
+        tablet.setCondition("Old");
 		
-		Product[] products3 = new Product[3];
-		sort(Arrays.asList(products3));
-		
+		products.add(phone);
+		products.add(notebook);
+		products.add(tablet);
 	}
 	
-//	List 인터페이스로 해야 다른 사람이 사용할 때 편리하다 
-	public static List<Product> sort(List<Product> products){
-		//정렬
-		return new ArrayList();
+	public List<Product> getAllProducts(){
+		return products;
+	}
+	
+	public Product getProductById(String id) {
+//		p.173 참고
+//		List -> Stream (데이터의 흐름)
+		return products.stream()
+				.filter((product)-> product.getId().equals(id)) //조건
+				.findFirst() //첫번째
+				.get(); //얻어
 	}
 }
