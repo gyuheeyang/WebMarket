@@ -28,10 +28,16 @@
 	<div class="container">
 		<div class="row" align="center">
             <%
+            //welcome2.jsp에서 저장한 값 가져오기 
+            //String name = (String) session.getAttribute("name");
+           	//int age = (int) session.getAttribute("age");
+           	
+           	out.print(session.getAttribute("foods"));
+            
             //싱글턴 패턴
             //자바 빈즈를 지우고 33 line을 새로 작성함 new는 사용하면 안됨 매번 새로고침을 하기 때문에 => 생성자를 private으로 막아서 new를 못하게 해야한다 (ProductRepository.java)
             ProductRepository repository = ProductRepository.getInstance(); 
-            out.print(repository.hashCode());
+            //out.print(repository.hashCode());
             List<Product> products = repository.getAllProducts();
             for (int i = 0; i < products.size(); i++) {
                 Product product = products.get(i);
