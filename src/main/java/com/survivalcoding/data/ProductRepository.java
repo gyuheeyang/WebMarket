@@ -9,8 +9,20 @@ public class ProductRepository {
 
 	private List<Product> products = new ArrayList<>();
 	
+	//싱글턴 패턴
+	//1. static 인스턴스 준비
+	//2. static 메서드로 인스턴스 리턴 (getInstance를 자주 사용함)
+	//3. 생성자 막기 (private) 
+	//ProductRepository class 안에 있지만 안에 있는게 아니다! -> static
+	private static ProductRepository instance = new ProductRepository();
 	
-	public ProductRepository() {
+	public static ProductRepository getInstance() {
+		return instance;
+	}
+	
+	
+	//private으로 생성자를 막는다-> new 금지! 자바 빈즈를 사용하기 위해 일단 public으로 둔다-> Product/ Products 모두 자바빈즈 사용 X
+	private ProductRepository() {
 		Product phone = new Product("P1234", "iphone 6s", 800000);
 		phone.setDescription("4.7inch, 1234x750 Retina HD display");
 		phone.setCategory("Smart Phone");
@@ -49,4 +61,11 @@ public class ProductRepository {
 				.findFirst() //첫번째
 				.get(); //얻어
 	}
+	
+	public void addProduct(Product product) {
+		products.add(product);
+		
+	}
+	
+	
 }

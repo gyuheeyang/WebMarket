@@ -3,7 +3,6 @@
     <%@page import="java.util.List" %>
       <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
         <!DOCTYPE html>
-        <jsp:useBean id="repository" class="com.survivalcoding.data.ProductRepository" scope="session"></jsp:useBean>
         <html>
 
         <head>
@@ -22,7 +21,10 @@
             </div>
           </div>
 
-          <% String id=request.getParameter("id"); Product product=repository.getProductById(id); %>
+          <%
+       		ProductRepository repository = ProductRepository.getInstance(); 
+          	String id=request.getParameter("id"); 
+          	Product product=repository.getProductById(id); %>
             <div class="container">
               <div class="row">
                 <div class="col-md-6">
