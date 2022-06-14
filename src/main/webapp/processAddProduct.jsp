@@ -30,5 +30,5 @@ product.setCondition(condition);
 
 repository.addProduct(product);
 
-response.sendRedirect("products.jsp");
+response.sendRedirect("Products.jsp");
 %>
