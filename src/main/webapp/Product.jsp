@@ -1,4 +1,4 @@
-<%@page import="com.survivalcoding.data.ProductRepository" %>
+<%@page import="com.survivalcoding.domain.repository.ProductRepository"%>
   <%@page import="com.survivalcoding.domain.model.Product" %>
     <%@page import="java.util.List" %>
       <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
@@ -22,6 +22,7 @@
           </div>
 
           <%
+          
        		ProductRepository repository = ProductRepository.getInstance(); 
           	String id=request.getParameter("id"); 
           	Product product=repository.getProductById(id); %>
@@ -34,7 +35,7 @@
                   <p>
                     <%=product.getDescription()%>
                   </p>
-                  <p><b>상품 코드 : </b><span class="badge bg-danger">
+                  <p><b>상품 코드 : </b><span class="badge bg-danger"> 
                       <%= product.getId() %>
                     </span></p>
                   <p><b>제조사 : </b><%= product.getManufacturer() %></p>
